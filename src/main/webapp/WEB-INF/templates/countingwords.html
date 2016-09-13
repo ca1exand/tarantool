@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head th:replace="../elements/header (title='Count')"></head>
+
+<body>
+
+	  <link rel="stylesheet" type="text/css" th:href="@{/css/list.css}" />
+
+	<div th:replace="../elements/nav"></div>
+
+
+
+	<div class="container">
+	<h1>Wie oft kommt das Wort im Verhältnis zur Länge des Films vor?</h1>
+		<div class="row">
+			<div class="col-md-4" th:each="entry : ${movieMap}">
+					<h2 th:text="${entry.key[1]}"></h2>
+					<span th:text="${entry.key[0]}"></span>
+			</div>
+		</div>
+	</div>
+
+<footer th:replace="../elements/footer"></footer>
+
+</body>
+</html>

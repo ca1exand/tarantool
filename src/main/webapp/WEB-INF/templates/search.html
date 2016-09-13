@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head th:replace="../elements/header (title='Search')"></head>
+
+<body>
+
+	  <link rel="stylesheet" type="text/css" th:href="@{/css/list.css}" />
+
+
+<div th:replace="../elements/nav"></div>
+
+<div class="container">
+<h1>Suche nach einem Wort im Volltext</h1>
+	<form action="/scripttool/search/result">
+		<input type="text" name="searchForm" />
+	</form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="../elements/header (title='Script')"></head>
+
+<body>
+
+<link rel="stylesheet" type="text/css" th:href="@{/css/list.css}" />
+
+<div th:replace="../elements/nav"></div>
+
+<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<h1 th:text="${doc.title}"></h1>
+				<span th:text="${doc.year} + ' ' + ${doc.runtime} + ' Autor: ' + ${doc.author}"></span>			
+				<ul>
+					<li class="works" th:each="d : ${docs}" th:style="'background-color: rgba('+ ${d.color} +')'">
+					<span th:text="${d.speaker}"></span> : 
+					<span th:text="${d.content}"></span></li>
+				</ul>
+			</div>
+		</div>
+</div>
+	
+<footer th:replace="../elements/footer"></footer>
+
+</body>
+</html>

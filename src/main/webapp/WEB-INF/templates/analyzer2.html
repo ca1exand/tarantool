@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Analyzer</title>
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+<!-- Bootstrap JavaScript -->
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- JQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<link rel="stylesheet" href="/css/style.css" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+</head>
+<body>
+	
+<h1>Suche nach dem Vorkommen eines Wortes in allen Werken</h1>
+	<form action="/scripttool/analyzer/wordCounter">
+		<input type="text" name="word" />
+		
+	  	<select name="movie1">
+  		<option th:each="movie : ${movies}" 
+          th:value="${movie.title}" 
+          th:text="${movie.title}"></option>
+		</select>
+		
+		<select name="movie2">
+  		<option th:each="movie : ${movies}" 
+          th:value="${movie.title}" 
+          th:text="${movie.title}"></option>
+		</select>
+		
+	</form>
+	
+	<h1>Suche nach Zitaten und lasse dir ähnliche Zitate anzeigen</h1>
+	<form action="/scripttool/analyzer/quotesearch">
+		<input type="text" name="inputPhrase" />
+	</form>	
+	
+	<h1>Untersuche den Aktiven Wortschatz der Charaktere eines Drehbuchs</h1>
+	<form action="/scripttool/analyzer/activevoc">
+		<select name="scriptName">
+  		<option th:each="movie : ${movies}" 
+          th:value="${movie.title}" 
+          th:text="${movie.title}"></option>
+		</select>
+		<button type="submit">los</button>
+	</form>		
+	
+	<h1>Analyse der Sprecher nach Schimpfworten</h1>
+	<form action="/scripttool/analyzer/swearwords">
+		<select name="scriptName">
+  		<option th:each="movie : ${movies}" 
+          th:value="${movie.title}" 
+          th:text="${movie.title}"></option>
+		</select>
+		<button type="submit">los</button>
+	</form>		
+</body>
+</html>

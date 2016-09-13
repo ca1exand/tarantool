@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Result</title>
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+<!-- Bootstrap JavaScript -->
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- JQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<link rel="stylesheet" href="/css/style.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Wie oft kommt das Wort im Verhältnis zur Länge des Films vor?</h1>
+	<div class="container">
+		<div class="row" >
+			<div class="col-md-4" th:each="entry : ${movieMap}">
+					<h2 th:text="${entry.key[1]}"></h2>
+					<span th:text="${entry.key[0]}"></span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="../elements/header (title='Data')"></head>
+
+  <body>
+  
+  
+  
+  <link rel="stylesheet" type="text/css" th:href="@{/css/list.css}" />
+
+	<div th:replace="../elements/nav"></div>
+	
+
+    <div class="container">
+      <div class="header clearfix">
+        <h3 class="text-muted">Project name</h3>
+      </div>
+
+      <div class="jumbotron">
+        <h1>The Scripts</h1>
+        <p class="lead">Please browse</p>
+      </div>
+
+      <div class="row marketing">
+        <ul class="titleList">
+		<li th:each="doc : ${docs}"><a
+			th:href="@{'/scripttool/script/'+ ${doc.id}}"> <span class="title"
+				th:text="${doc.title}"></span></a></li>
+		</ul>
+      </div>
+
+	  </div> <!-- /container -->
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    
+    <footer th:replace="../elements/footer"></footer>
+    
+  </body>
+  
+  
+  
+</html>
+

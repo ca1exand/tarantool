@@ -1,0 +1,15 @@
+.workTitle {
+	color: #EF2356;
+	padding: 2px;
+	background-image: -moz-linear-gradient(-45deg, rgba(239,35,86, 0.2)
+		25%, transparent 25%, transparent 50%, rgba(23, 255, 255, 0.2) 50%,
+		rgba(23, 255, 255, 0.2) 75%, transparent 75%, transparent);
+}
+
+ul.titleList {
+	list-style: square;
+}
+
+ul.titleList li {
+	padding: 2px;
+}

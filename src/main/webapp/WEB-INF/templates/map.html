@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head th:replace="../elements/header (title='Vocab')"></head>
+
+<body>
+
+<h1>Analyse zu <span th:text="${title}"></span></h1>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<ul>
+					<li class="scripts" th:each="speaker : ${activeVocs}">
+					<span th:text="${speaker}"></span></li>
+				</ul>
+			</div>
+			<div class="col-md-8" id="content"></div>
+		</div>
+	</div>
+
+<footer th:replace="../elements/footer"></footer>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+<footer th:fragment="footer" id="footer">
+  <div class="navbar navbar-fixed-bottom">
+    &copy;
+    <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}"></span>
+    <a href="http://www.uni-koeln.de">Universität zu Köln</a>
+  </div>
+</footer>

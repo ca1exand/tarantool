@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+<title>Result</title>
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+<!-- Bootstrap JavaScript -->
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- JQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<link rel="stylesheet" href="/css/style.css" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+</head>
+<body>
+
+<h1>ergebnisse über ergebnisse:</h1>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<ul>
+					<li class="scripts" th:each="doc : ${docs}">
+					<a th:href="@{'/scripttool/script/'+ ${#strings.arraySplit(doc.id,'-')[0]}}"> 
+						<span th:text="${doc.speaker}"></span>: 
+						<span th:text="${doc.content}"></span>
+						<span th:text="${doc.title}"></span>
+					</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-8" id="content"></div>
+		</div>
+	</div>
+
+
+</body>
+</html>

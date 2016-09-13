@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Search</title>
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+<!-- Bootstrap JavaScript -->
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- JQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<link rel="stylesheet" href="/css/style.css" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+</head>
+<body>
+<h1>Suche nach einem Wort im Volltext</h1>
+	<form action="/scripttool/search/result">
+		<input type="text" name="searchForm" />
+	</form>
+<h2>Richtig Suchen</h2>
+<span>
+Mit folgenden Regeln können Sie die Drehbücher gezielt durchsuchen. 
+
+Die Eingabe zweier Worte in Anführungszeichen sucht nach diesen Worten in exakt der angegebenen Abfolge, 
+wohingegen die Worte hintereinander ohne Anführungszeichen unabhängig Ihrer Stellung zueinander im Ergebnis vorkommen.
+
+Durch Angabe der Felder kann die Suche verfeinert werden:
+
+"title:'Name des Films'" 
+"year: 'ein Jahr'" 
+"author: 'Name des Autors'"
+"speaker: 'name der Rolle'"
+"content: 'wort'"
+
+Per Default wird in "content" gesucht.
+
+Durch "AND" und "OR" können Begriffe obligatorisch oder fakultativ miteinander verknüpft werden.
+Das Beispiel liefert alle Stellen des Drehbuchs zum Film "Reservoir Dogs", die das Wort "pink" enthalten: 
+
+"title: 'reservoir dogs' AND content:pink"
+
+Als Wildcard für einen Buchstaben kann "?" eingesetzt werden, "*" steht hingegen für beliebig viele Buchstaben.
+Mit "-" können Sie Ergebnisse aus Ihrer Suche ausschließen. 
+Beispiel:
+
+"pink -mr. pink"
+
+Es werden Alle Fundstellen zurückgegeben, die "pink" aber nicht "mr. pink beinhalten".
+</span>
+
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title th:text="${doc.title}">Titel</title>
+
+<!-- BOOTSTRAP-DEPENDENCIES -->
+<!-- 
+
+Um mit Boostrap (http://getbootstrap.com/) zu arbeiten, müssen zwei Ressourcen in den HTML-Head eingebunden werden:
+
+(1) Bootstrap CSS
+(2) Bootstrap JavaScript
+
+Beide Ressourcen werden mittels CDN (Content Delivery Network) eingebunden, d.h. die Dateien müssen nicht 
+in unsere Applikation abgelegt werden, sondern werden über einen externen Link referenziert. Die aktuellen 
+Ressourcen (CSS & JavaScript) gibt es hier: http://getbootstrap.com/getting-started/#download-cdn 
+
+-->
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+<!-- Bootstrap JavaScript -->
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- 
+
+Um die JavaScript-Plugins von Bootstrap nutzen zu können, muss zusätzlich die JavaScript-Bibliothek 
+JQuery (https://jquery.com/) eingebunden werden. Diese kann ebenfalls über CDN eingebunden 
+werden: https://code.jquery.com/
+
+-->
+<!-- JQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<!-- 
+Hier referenzieren wir unsere eigene CSS Datei, die sich im Verzeichnis src/main/webapp/css/style.css befindet.
+Siehe die MVC-Konfiguration in myServelt-servlet.xml
+-->
+<link rel="stylesheet" href="/css/style.css" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+</head>
+<body>
+
+	<!-- 
+		Hier machen wir Gebrauch vom Bootstrap's Gridsystem, mit dessen Hilfe das Seitenlayout
+		gestaltet werden kann.
+		Das Gridsystem besteht aus der Setzung von Zeilen und Spalten in einem Container...
+		Auf der Seite http://getbootstrap.com/css/#grid-intro ist sehr klar und übersichtlich der 
+		Gebrauch des Gridsystems beschrieben.
+	 -->
+	<div class="container">
+		<!-- Im '.container'-Element werden '.row'-Elemente platziert. Im '.container'-Element lassen sich mehrere '.row'-Elemente platzieren -->
+		<div class="row">
+			<!-- In '.row'-Elementen können nur '.col-*'-Elemente als unmittelbaren Nachkommen enthalten sein.
+				Pro '.row'-Element können maximal 12 '.col-*'-Elemente eingefügt werden.
+			 -->
+			<div class="col-md-4">
+				<!-- Innerhalb der '.col-*'-Elemente wird der Content gesetzt. 
+				Dieses Element hat die Breite bzw. Größe 4
+			-->
+				<ul>
+					<li class="works" th:each="doc : ${docs}"><a
+						th:href="@{'/scripttool/script/'+ ${doc.id}}"> <span
+							th:text="${doc.title}"></span></a></li>
+				</ul>
+			</div>
+			<div class="col-md-8" id="content">
+				<!--  
+				Dieses Element hat die Breite bzw. Größe 8. Zusammen mit dem darüberstehenden 
+				ergibt das die max. Größe von 12.
+			-->
+				<h1 th:text="${doc.title}">...</h1>
+				<p th:text="${#strings.substring(doc.content, 0, 1024)}">...</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

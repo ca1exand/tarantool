@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<header th:replace="../elements/header"></header>
+
+<body>
+	
+	<div th:replace="../elements/nav"></div>
+	
+	<link rel="stylesheet" type="text/css" th:href="@{/css/list.css}" />
+	
+	<h1>Suche nach dem Vorkommen eines Wortes in allen Werken</h1>
+	<form action="/scripttool/analyzer/wordCounter">
+		<input type="text" name="word" />
+		
+	  	<select name="movie1">
+  		<option th:each="movie : ${movies}" 
+          th:value="${movie.title}" 
+          th:text="${movie.title}"></option>
+		</select>
+		
+		<select name="movie2">
+  		<option th:each="movie : ${movies}" 
+          th:value="${movie.title}" 
+          th:text="${movie.title}"></option>
+		</select>
+		
+	</form>
+	
+	<h1>Suche nach Zitaten und lasse dir ähnliche Zitate anzeigen</h1>
+	<form action="/scripttool/analyzer/quotesearch">
+		<input type="text" name="inputPhrase" />
+	</form>	
+	
+	<h1>Untersuche den Aktiven Wortschatz der Charaktere eines Drehbuchs</h1>
+	<form action="/scripttool/analyzer/activevoc">
+		<select name="scriptName">
+  		<option th:each="movie : ${movies}" 
+          th:value="${movie.title}" 
+          th:text="${movie.title}"></option>
+		</select>
+		<button type="submit">los</button>
+	</form>		
+	
+	<h1>Analyse der Sprecher nach Schimpfworten</h1>
+	<form action="/scripttool/analyzer/swearwords">
+		<select name="scriptName">
+  		<option th:each="movie : ${movies}" 
+          th:value="${movie.title}" 
+          th:text="${movie.title}"></option>
+		</select>
+		<button type="submit">los</button>
+	</form>		
+	
+<footer th:replace="../elements/footer"></footer>
+	
+</body>
+</html>
